@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+/* Definition of Node */
+struct node
+{
+int data;
+struct node *next;
+};
+struct node *top = NULL;
+/* Function Prototype */
+void push();
+/* Main Function */
+int main()
+{
+int choice;
+while(1)
+{
+printf("\n--- Stack Menu ---\n");
+printf("1. Push\n");
+printf("2. Exit\n");
+printf("Enter your choice: ");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+push();
+break;
+case 2:
+exit(0);
+default:
+printf("Invalid choice\n");
+}
+}
+return 0;
+}
+/* Push Operation */
+void push()
+{
+int value;
+struct node *newnode;
+newnode = (struct node*)malloc(sizeof(struct node));
+printf("Enter value to push: ");
+scanf("%d",&value);
+newnode->data = value;
+newnode->next = top;
+top = newnode;
+printf("Element inserted successfully\n");
+}
